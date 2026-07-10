@@ -1,0 +1,434 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{float}
+\newcommand{\Needspace}[1]{}
+
+\geometry{margin=2.2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.75em}
+\setlength{\headheight}{24pt}
+\emergencystretch=2em
+\hfuzz=6pt
+
+\definecolor{ForestGreen}{HTML}{2E6F40}
+\definecolor{DeepGreen}{HTML}{1F4D2B}
+\definecolor{SoftGreen}{HTML}{EAF4EA}
+\definecolor{WarmSand}{HTML}{F4EFE6}
+\definecolor{AccentGold}{HTML}{C89B3C}
+\definecolor{TextGray}{HTML}{4A4A4A}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=ForestGreen,
+    urlcolor=ForestGreen,
+    pdftitle={Informe de especies nativas},
+    pdfauthor={}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textcolor{TextGray}{Informe de especies nativas}}
+\rhead{\textcolor{TextGray}{Bosque Miyawaki}}
+\cfoot{\textcolor{TextGray}{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{ForestGreen}\leaders\hrule height \headrulewidth\hfill}}
+
+\titleformat{\section}
+  {\Large\bfseries\color{DeepGreen}}
+  {\thesection}{0.75em}{}
+\titleformat{\subsection}
+  {\large\bfseries\color{ForestGreen}}
+  {\thesubsection}{0.75em}{}
+
+% ---------------------------------------------------------------------------
+% Iconos vectoriales reutilizables (sol = exposición, gota = riego)
+% ---------------------------------------------------------------------------
+\newcommand{\sunicon}{%
+  \begin{tikzpicture}[baseline=-0.55ex,scale=0.16]
+    \draw[AccentGold,line width=1.6pt] (0,0) circle (0.9);
+    \foreach \a in {0,45,90,135,180,225,270,315}{
+      \draw[AccentGold,line width=1.6pt] (\a:1.25) -- (\a:1.75);
+    }
+  \end{tikzpicture}%
+}
+\newcommand{\dropicon}{%
+  \begin{tikzpicture}[baseline=-0.55ex,scale=0.16]
+    \fill[ForestGreen] (0,1.6) .. controls (-1.15,0.1) and (-1.15,-0.85) ..
+      (0,-1.6) .. controls (1.15,-0.85) and (1.15,0.1) .. (0,1.6) -- cycle;
+  \end{tikzpicture}%
+}
+
+% ---------------------------------------------------------------------------
+% \speciescard: ficha visual de una especie.
+% #1 título breve  #2 ruta de imagen  #3 nombre común  #4 nombre científico
+% #5 estrato / altura  #6 exposición solar  #7 demanda de riego
+% #8 función principal en el espacio
+%
+% NOTA PARA QUIEN EDITE ESTE DOCUMENTO:
+% Para agregar una especie nueva, duplica un bloque \subsection{...}
+% completo (llamada a \speciescard + párrafo + itemize) y reemplaza la
+% ruta de la imagen, el nombre común, el nombre científico y los datos
+% de los 8 campos principales.
+% ---------------------------------------------------------------------------
+\newcommand{\speciescard}[8]{%
+\begin{tcolorbox}[
+    breakable,
+    colback=white,
+    colframe=ForestGreen,
+    boxrule=0.8pt,
+    arc=2mm,
+    left=1mm,
+    right=1mm,
+    top=1mm,
+    bottom=1mm,
+    title={\parbox[t]{0.95\linewidth}{\raggedright\textbf{#1}}},
+    fonttitle=\bfseries,
+    coltitle=white
+]
+\begin{minipage}[t]{0.34\textwidth}
+\vspace{0pt}
+    \centering
+    \IfFileExists{#2}{%
+        \includegraphics[width=\linewidth,height=5.5cm,keepaspectratio]{#2}%
+    }{%
+        \begin{tikzpicture}
+            \fill[SoftGreen] (0,0) rectangle (5.5,5.5);
+            \draw[ForestGreen, thick] (0.4,0.4) rectangle (5.1,5.1);
+            \node[align=center, text=DeepGreen] at (2.75,2.75) {Imagen de la especie\\\small (#2)};
+        \end{tikzpicture}%
+    }
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.62\textwidth}
+\vspace{0pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{>{\bfseries\color{ForestGreen}}l >{\raggedright\arraybackslash}X}
+Nombre común: & #3 \\
+Nombre científico: & \textit{#4} \\
+Estrato / altura: & #5 \\
+\sunicon\ Exposición: & #6 \\
+\dropicon\ Riego: & #7 \\
+Función en el espacio: & #8
+\end{tabularx}
+\end{minipage}
+\end{tcolorbox}
+}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[WarmSand] (current page.south west) rectangle (current page.north east);
+        \fill[ForestGreen] (current page.north west) rectangle ([xshift=6.2cm]current page.south west);
+        \fill[SoftGreen] ([xshift=4.8cm,yshift=-3cm]current page.north west) circle (3.8cm);
+        \fill[AccentGold, opacity=0.22] ([xshift=12cm,yshift=-13cm]current page.north west) circle (4.6cm);
+        \draw[white, line width=1.4pt, opacity=0.85] ([xshift=1.3cm,yshift=-3cm]current page.north west) -- ([xshift=4.8cm,yshift=-3cm]current page.north west);
+        \draw[white, line width=1.4pt, opacity=0.85] ([xshift=1.3cm,yshift=-4cm]current page.north west) -- ([xshift=4.0cm,yshift=-4cm]current page.north west);
+    \end{tikzpicture}
+
+    \vspace*{2.2cm}
+    {\color{black}\large\bfseries Informe técnico}\par
+    \vspace{0.8cm}
+    {\color{black}\Huge\bfseries Especies nativas para plantación}\par
+    \vspace{0.8cm}
+    {\color{black}\Large Selección visual y fichas de especies para un espacio de restauración}\par
+
+    \vspace{2.5cm}
+    \begin{tcolorbox}[
+        width=0.72\textwidth,
+        colback=white,
+        colframe=ForestGreen,
+        arc=3mm,
+        boxrule=0.9pt,
+        left=4mm,
+        right=4mm,
+        top=3mm,
+        bottom=3mm
+    ]
+    \textbf{Objetivo del documento}\par
+    Presentar las especies nativas y endémicas que se utilizarán en la plantación de Tierra Amigos. El informe permite comparar las especies, conocer sus requerimientos y funciones ecológicas.
+    \end{tcolorbox}
+
+    \vfill
+    {\color{white}\large\textbf{Proyecto:} Bosque Miyawaki}\par
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+Se seleccionaron plantas nativas y endémicas de bajo requerimiento hídrico, capaces de adaptarse y prosperar en el contexto de escasez hídrica y sequía prolongada que afecta a la Región Metropolitana. Estas especies cumplen un rol ecológico relevante, ya que funcionan como refugio, hábitat y fuente de alimento para la fauna local, especialmente para polinizadores, como abejas nativas y mariposas, además de diversas aves.
+
+Asimismo, algunas de estas especies poseen significados culturales asociados a usos medicinales, comestibles o simbólicos, lo que favorece la educación ambiental y fortalece el sentido de pertenencia de la comunidad con el jardín.
+
+La selección se fundamenta en un monitoreo científico desarrollado durante varios meses, en el cual se evaluó positivamente la sobrevivencia de las especies, con valores superiores al 40\%, junto con su productividad y tolerancia al estrés en condiciones urbanas. Además, estas plantas presentan alta resistencia a plagas y una respuesta favorable a manejos agronómicos básicos, como podas de limpieza o de formación.
+
+\section{Cómo usar esta guía}
+Antes de revisar las fichas, esta sección explica brevemente los símbolos y términos que se repiten a lo largo del documento.
+
+\begin{tcolorbox}[
+    colback=SoftGreen,
+    colframe=ForestGreen,
+    arc=2mm,
+    boxrule=0.6pt,
+    left=4mm,right=4mm,top=3mm,bottom=3mm
+]
+\begin{tabularx}{\linewidth}{c X}
+\sunicon & \textbf{Exposición solar}: cantidad de luz directa que necesita la especie (pleno sol, semisombra, etc.). \\[0.4em]
+\dropicon & \textbf{Riego}: demanda hídrica orientativa durante la temporada de establecimiento (octubre--abril). \\
+\end{tabularx}
+\end{tcolorbox}
+
+\section{Resumen comparativo de especies}
+La siguiente tabla permite comparar de un vistazo las doce especies incluidas en este informe antes de revisar cada ficha en detalle.
+
+\footnotesize
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{4pt}
+\rowcolors{2}{SoftGreen}{white}
+\begin{longtable}{>{\bfseries}p{2.7cm} p{2.1cm} p{1.7cm} p{2.1cm} p{1.8cm} p{2.6cm}}
+\rowcolor{ForestGreen}
+\textcolor{white}{\bfseries Especie} & \textcolor{white}{\bfseries Estrato} & \textcolor{white}{\bfseries Altura} & \textcolor{white}{\bfseries Exposición} & \textcolor{white}{\bfseries Riego} & \textcolor{white}{\bfseries Floración} \\
+\endfirsthead
+\rowcolor{ForestGreen}
+\textcolor{white}{\bfseries Especie} & \textcolor{white}{\bfseries Estrato} & \textcolor{white}{\bfseries Altura} & \textcolor{white}{\bfseries Exposición} & \textcolor{white}{\bfseries Riego} & \textcolor{white}{\bfseries Floración} \\
+\endhead
+Corontillo & Arbusto / arbolito & Variable & Pleno sol & Moderado & Nov.--feb. \\
+Huingán & Arbusto alto & Variable & Pleno sol & Moderado & Oct.--dic. \\
+Quebracho & Arbusto / arbolito & Variable & Semisombra & Moderado & Primavera / feb. \\
+Pingo Pingo & Arbusto & Variable & Pleno sol & Bajo & -- \\
+Malva de cerro & Subarbusto & Hasta 1,4 m & Pleno sol & Bajo & Primavera--otoño \\
+Maravilla de campo & Arbusto & Hasta 2 m & Pleno sol & Bajo & Primavera \\
+Ruby & Hierba / subarbusto & Variable & Pleno sol & Bajo (goteo) & Fin invierno--otoño \\
+Mirabilis ovata & Hierba perenne & Baja & Pleno sol & Muy bajo & -- \\
+Pata de guanaco & Herb. suculenta & Baja & Pleno sol & Muy bajo & Primavera--verano \\
+Poquil & Herbácea & Baja & Pleno sol & Bajo & Tras lluvias \\
+\end{longtable}
+\normalsize
+
+\section{Especies arbustivas y arborescentes}
+
+\Needspace{7cm}
+\subsection{Corontillo}
+
+\speciescard
+{Corontillo}
+{imagenes/corontillo.jpg}
+{Corontillo}
+{Escallonia pulverulenta}
+{Arbusto o pequeño árbol}
+{Pleno sol}
+{Moderado ($\sim$8 L/semana)}
+{Sombra, estructura vertical y refugio para fauna}
+
+El corontillo es un arbusto o pequeño árbol endémico de Chile, caracterizado por su rápido crecimiento y su capacidad para desarrollarse en ambientes áridos y asoleados. En la Región Metropolitana se distribuye naturalmente en laderas secas, márgenes de bosques esclerófilos y orillas de caminos, por lo que presenta una buena compatibilidad con jardines de bajo requerimiento hídrico.
+
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Ciclo de floración:} florece principalmente entre noviembre y febrero, formando densas espigas de flores blancas que atraen polinizadores, especialmente abejas y dípteros.
+    \item \textbf{Fructificación:} produce frutos en forma de cápsula ovoidal, que contienen semillas pequeñas y alargadas.
+    \item \textbf{Suelo:} se recomienda plantarlo en suelos pedregosos o rocosos, ya que estos favorecen la maduración de las cápsulas y la producción de semillas viables.
+    \item \textbf{Exposición:} requiere pleno sol y se adapta bien a laderas áridas y sectores abiertos con alta radiación.
+    \item \textbf{Crecimiento:} es una especie de rápido crecimiento que puede alcanzar hasta 5 metros de altura, aportando estructura vertical y sombra al espacio.
+    \item \textbf{Compatibilidad con el sitio:} es adecuada para espacios urbanos secos y soleados. Sin embargo, se debe evitar su plantación en suelos excesivamente fértiles o blandos, ya que puede desarrollar abundante follaje, pero reducir su capacidad reproductiva.
+\end{itemize}
+
+\newpage
+
+\Needspace{7cm}
+\subsection{Huingán}
+
+\speciescard
+{Huingán}
+{imagenes/huingan.jpg}
+{Huingán}
+{Schinus polygamus}
+{Arbusto alto o arbolito}
+{Pleno sol}
+{Moderado ($\sim$8 L/semana)}
+{Sombra, estructura vertical y refugio para fauna}
+
+El huingán es un arbusto alto, ampliamente adaptado a condiciones de sequía, alta exposición solar y suelos pobres. En la Región Metropolitana es frecuente en valles interiores secos y forma parte característica de la estepa de espino, donde convive con especies como el peumo, el quillay y el espino.
+
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Ciclo de floración:} florece entre la primavera media y el inicio del verano, aproximadamente entre octubre y diciembre, produciendo pequeñas flores amarillentas.
+    \item \textbf{Fructificación:} sus frutos maduran hacia finales del verano, entre enero y marzo. Corresponden a drupas violáceas oscuras o negras brillantes, que sirven de alimento para aves locales.
+    \item \textbf{Multiplicación:} se multiplica con facilidad por semillas y presenta un crecimiento relativamente rápido, lo que favorece su establecimiento en proyectos de restauración o jardinería nativa.
+    \item \textbf{Crecimiento:} suele presentar un hábito arbustivo, alcanzando hasta 3 metros de altura. Sus ramas son intrincadas y, en algunos casos, pueden terminar en espinas.
+    \item \textbf{Suelo y clima:} prefiere suelos pobres, áridos, degradados y bien expuestos al sol. Tolera condiciones exigentes propias de la zona central, incluyendo heladas y temperaturas extremas.
+    \item \textbf{Compatibilidad con el sitio:} es una especie adecuada para espacios urbanos secos y soleados, especialmente en sectores donde se busca incorporar vegetación resistente, de bajo mantenimiento y con valor ecológico para la fauna local.
+\end{itemize}
+
+\newpage
+
+\Needspace{7cm}
+\subsection{Quebracho}
+\speciescard{Quebracho}{imagenes/quebracho.jpg}{Quebracho}{Senna candolleana / Senna stipulacea}{Arbusto o arbolito}{Semisombra}{Moderado ($\sim$8 L/semana)}{Sombra, estructura vertical y refugio para fauna}{}
+Bajo el nombre común de Quebracho se encuentran principalmente dos especies del género \textit{Senna}.
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Quebracho (\textit{Senna candolleana}):} florece durante la primavera; sus flores son amarillas anaranjadas muy vistosas y el fruto es una legumbre cilíndrica de color pardo al madurar.
+    \item \textbf{Quebracho blanco / Sen chileno (\textit{Senna stipulacea}):} florece específicamente en febrero.
+    \item \textbf{Siembra:} se propagan por semillas y requieren estratificación previa para germinar.
+    \item \textbf{Trasplante:} conviene elegir un lugar a semisombra.
+    \item \textbf{Sensibilidad:} son plantas muy sensibles a las heladas.
+    \item \textbf{Beneficio edáfico:} ambas especies fijan nitrógeno y aumentan la fertilidad del suelo.
+\end{itemize}
+
+\section{Especies xerófitas y herbáceas}
+
+\Needspace{7cm}
+\subsection{Pingo Pingo}
+\speciescard{Pingo Pingo}{imagenes/pingo-pingo.jpg}{Pingo Pingo}{Ephedra chilensis}{Arbusto nativo postrado o erecto}{Pleno sol}{Bajo ($\sim$4 L/semana)}{Cobertura de suelo, atracción de polinizadores y protección del sustrato}{}
+Es un arbusto nativo de hábitos postrados o erectos, extremadamente resistente a la aridez.
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Suelo y plantación:} presenta alta productividad de biomasa en suelos pedregosos; conviene evitar suelos excesivamente enriquecidos con materia orgánica.
+    \item \textbf{Ciclo biológico:} al ser una gimnosperma, posee hojas reducidas a escamas diminutas para minimizar la pérdida de agua.
+    \item \textbf{Multiplicación:} puede reproducirse por semillas o por fraccionamiento de rizomas.
+    \item \textbf{Riego:} requiere aproximadamente 4 litros semanales de agua.
+\end{itemize}
+
+\Needspace{7cm}
+\subsection{Malva de cerro}
+\speciescard{Malva de cerro}{imagenes/malva-de-cerro.jpg}{Malva de cerro}{Sphaeralcea obtusiloba}{Subarbusto perenne}{Pleno sol}{Bajo ($\sim$4 L/semana)}{Cobertura de suelo, atracción de polinizadores y protección del sustrato}{}
+Es un subarbusto endémico de la familia de las malváceas, perenne y de follaje siempreverde, muy valorado por su capacidad para atraer abejas nativas.
+\begin{itemize}[leftmargin=1.2cm]
+     \item \textbf{Suelo y plantación:} se adapta a una amplia variedad de texturas y calidades de suelo, siempre que cuente con buen drenaje.
+     \item \textbf{Manejo:} agradece una poda de renovación una vez al año, lo que favorece una floración más abundante.
+    \item \textbf{Ciclo de floración:} se extiende desde la primavera hasta el otoño.
+    \item \textbf{Riego:} demanda hídrica baja, con 4 litros semanales.
+\end{itemize}
+
+\Needspace{7cm}
+\subsection{Maravilla de campo o Incienso}
+\speciescard{Maravilla}{imagenes/maravilla-de-campo.jpg}{Maravilla de campo o Incienso}{Flourensia thurifera}{Arbusto hasta 2 m}{Pleno sol}{Bajo (4 a 8 L/semana)}{Cobertura de suelo, atracción de polinizadores y protección del sustrato}{}
+Es un colonizador primario ideal para suelos erosionados o degradados.
+\begin{itemize}[leftmargin=1.2cm]
+     \item \textbf{Ciclo de floración:} se extiende desde el invierno tardío hasta el final de la primavera, e incluso hasta el otoño según la zona.
+    \item \textbf{Ciclo biológico:} produce capítulos florales amarillos dorados en primavera; sus hojas se marchitan en verano pero permanecen adheridas a las ramas.
+    \item \textbf{Usos:} valorada en apicultura y medicina tradicional; su resina se utilizaba como incienso.
+    \item \textbf{Riego:} requiere poco riego, entre 4 y 8 litros semanales según su tamaño final.
+ \end{itemize}
+
+\Needspace{7cm}
+\subsection{Ruby}
+\speciescard{Ruby}{imagenes/ruby.jpg}{Ruby}{Alternanthera porrigens}{Hierba perenne o subarbusto}{Pleno sol}{Bajo, riego localizado}{Cobertura de suelo, atracción de polinizadores y protección del sustrato}{}
+Es una hierba perenne o subarbusto muy valorado por el color intenso de sus inflorescencias.
+\begin{itemize}[leftmargin=1.2cm]
+     \item \textbf{Ciclo biológico:} produce pequeños capítulos florales de color púrpura a rojo intenso (tono ``ruby''), muy vistosos, y mantiene su follaje persistente durante todo el año.
+    \item \textbf{Ciclo de floración:} se extiende desde el final del invierno hasta el otoño.
+    \item \textbf{Condiciones de plantación:} su productividad se optimiza en suelos pedregosos; es muy sensible al exceso de humedad.
+    \item \textbf{Exposición:} requiere pleno sol y es ideal para ambientes costeros.
+    \item \textbf{Riego:} se recomienda riego localizado por goteo, evitando mojar el follaje por aspersión.
+\end{itemize}
+
+\Needspace{7cm}
+\subsection{Mirabilis ovata}
+\speciescard{Mirabilis ovata}{imagenes/mirabilis-ovata.jpg}{Mirabilis ovata}{Mirabilis ovata}{Hierba perenne xerófila}{Pleno sol}{Muy bajo}{Cobertura de suelo y aporte de biodiversidad floral}{}
+Es una hierba perenne xerófila nativa, adaptada a condiciones de aridez extrema.
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Estrategia de supervivencia:} posee una raíz tuberosa napiforme que reserva agua y energía.
+    \item \textbf{Ciclo reproductivo:} puede autopolinizarse enrollando los filamentos estaminales hacia el estigma.
+    \item \textbf{Hábitat de plantación:} se adapta a laderas áridas y afloramientos graníticos desde el nivel del mar hasta los 3.200 m s.\,n.\,m.
+\end{itemize}
+
+\Needspace{7cm}
+\subsection{Pata de guanaco}
+\speciescard{Pata de guanaco}{imagenes/pata-de-guanaco.jpg}{Pata de guanaco}{Cistanthe grandiflora}{Herbácea suculenta perenne}{Pleno sol}{Muy bajo}{Cobertura de suelo y aporte de biodiversidad floral}{}
+Es una herbácea suculenta perenne, extremadamente resistente y de gran valor ornamental.
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Ciclo de floración:} produce flores magenta brillante principalmente durante primavera y verano.
+    \item \textbf{Multiplicación:} se propaga con gran facilidad mediante semillas y esquejes.
+    \item \textbf{Resistencia:} puede sobrevivir más de dos meses sin riego en pleno verano; tolera heladas de hasta -5\,\textdegree C, pero no nieve.
+\end{itemize}
+
+\Needspace{7cm}
+\subsection{Poquil}
+\speciescard{Poquil}{imagenes/poquil.jpg}{Poquil}{Helenium aromaticum / H. glaucum}{Herbácea del secano semiárido}{Pleno sol}{Bajo}{Cobertura de suelo y aporte de biodiversidad floral}{}
+Este complejo de especies herbáceas es típico del secano semiárido.
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Ciclo de floración:} florece con vigor inmediatamente después de las escasas lluvias de invierno.
+    \item \textbf{Condiciones de plantación:} requiere suelos con excelente drenaje y baja humedad edáfica.
+    \item \textbf{Características:} es muy resistente a la degradación del suelo y posee glándulas con aceites esenciales de olor intenso y agradable.
+\end{itemize}
+
+\section{Protocolo general de riego}
+Todas las especies de este informe comparten un mismo calendario de riego activo, concentrado entre octubre y abril, con doble frecuencia semanal durante enero y febrero. El volumen de agua varía según el estrato de la especie.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{>{\bfseries\color{ForestGreen}}p{4.6cm} X X}
+\toprule
+ & \textbf{Estrato alto} (árboles, arbustos y arborescentes) & \textbf{Estrato bajo} (herbáceas y subarbustos) \\
+\midrule
+Periodo activo & Octubre a abril & Octubre a abril \\
+Frecuencia en verano & Dos veces por semana (enero--febrero) & Dos veces por semana (enero--febrero) \\
+Volumen semanal & $\sim$8 litros por planta & $\sim$4 litros por planta \\
+Método & Riego localizado en la zona de raíces & Aplicar lejos del cuello de la planta para evitar hongos radiculares \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Complementación entre especies}
+La plantación cercana de estas especies puede organizarse como una asociación coherente, en la que cada grupo cumple una función ecológica complementaria. El objetivo es aprovechar requerimientos similares de agua y suelo, al mismo tiempo que se refuerzan procesos como la polinización, la protección del suelo y la estabilidad del sistema.
+
+\subsection{Estratificación vertical}
+La combinación de árboles como Huingán, Corontillo y Quebracho con arbustos como Malva de cerro, Maravilla de campo y Pingo Pingo, más herbáceas como Ruby, Pata de guanaco y Poquil, permite construir una estratificación vertical diversa.
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Refugio para fauna:} la superposición de capas vegetales ofrece sitios de anidación, alimentación y resguardo para insectos, aves y reptiles.
+    \item \textbf{Microclima:} la diversidad de alturas ayuda a moderar la temperatura del suelo y a generar un ambiente más fresco y protegido.
+\end{itemize}
+
+\subsection{Sinergia nutricional y estabilización}
+Las especies seleccionadas no solo conviven, sino que también se potencian entre sí mediante procesos de mejora del suelo y control de erosión.
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Fijación de nitrógeno:} el Quebracho, como especie del género \textit{Senna}, contribuye a aumentar la fertilidad del suelo.
+    \item \textbf{Estabilidad del sustrato:} especies arbustivas como Corontillo y Malva de cerro ayudan a fijar laderas degradadas y protegen a las herbáceas más pequeñas.
+\end{itemize}
+
+\subsection{Control biológico de plagas}
+La diversidad vegetal favorece el equilibrio natural del sistema y reduce la dependencia de manejos externos.
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Atracción de polinizadores:} Malva de cerro, Pata de guanaco y Poquil atraen abejas nativas, mariposas y sírfides.
+    \item \textbf{Equilibrio ecológico:} una mayor biodiversidad de insectos benéficos ayuda a mantener bajo control a posibles plagas.
+\end{itemize}
+
+\subsection{Compatibilidad agroecológica}
+La mayoría de estas especies se ubica en categorías CAE 1 y CAE 2, o bien en rangos de adaptación cercanos, lo que facilita su convivencia bajo un régimen de riego compartido.
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Rusticidad compartida:} todas presentan bajos requerimientos hídricos y buena adaptación a condiciones de aridez o semiaridez.
+    \item \textbf{Manejo común:} pueden mantenerse bajo un mismo programa de riego sin generar desequilibrios importantes entre especies.
+\end{itemize}
+
+En conjunto, la plantación mixta permite ahorrar agua y, al mismo tiempo, restituir servicios ecosistémicos clave como la polinización y la formación de suelo vivo.
+
+\section{Especificaciones generales del espacio}
+\begin{tabularx}{\linewidth}{>{\bfseries\color{ForestGreen}}p{4cm} X}
+Tipo de plantación: & Alta diversidad de estratos y densidad intermedia a alta. \\
+Objetivo principal: & Restauración ecológica y mejora paisajística. \\
+Manejo inicial: & Riego de establecimiento, control de malezas y reposición de fallas. \\
+Mantenimiento: & Monitoreo periódico de crecimiento, sanidad y competencia. \\
+\end{tabularx}
+
+\section{Conclusión}
+Este formato permite presentar especies nativas de forma atractiva y ordenada, integrando imágenes, datos técnicos y observaciones útiles para la toma de decisiones.
+
+\end{document}
