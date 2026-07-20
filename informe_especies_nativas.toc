@@ -4,20 +4,19 @@
 \contentsline {section}{\numberline {4}Especies arbustivas y arborescentes}{3}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Corontillo}{3}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Huingán}{4}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Quebracho}{4}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Especies xerófitas y herbáceas}{5}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Pingo Pingo}{5}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Malva de cerro}{6}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Maravilla de campo o Incienso}{6}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Ruby}{7}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Mirabilis ovata}{7}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Pata de guanaco}{8}{subsection.5.6}%
-\contentsline {subsection}{\numberline {5.7}Poquil}{9}{subsection.5.7}%
-\contentsline {section}{\numberline {6}Protocolo general de riego}{9}{section.6}%
-\contentsline {section}{\numberline {7}Complementación entre especies}{9}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Estratificación vertical}{10}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Sinergia nutricional y estabilización}{10}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Control biológico de plagas}{10}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Compatibilidad agroecológica}{10}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Especificaciones generales del espacio}{11}{section.8}%
-\contentsline {section}{\numberline {9}Conclusión}{11}{section.9}%
+\contentsline {subsection}{\numberline {4.3}Quebracho}{5}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Especies xerófitas y herbáceas}{6}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Pingo Pingo}{6}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Malva de cerro}{7}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Maravilla de campo o Incienso}{8}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Ruby}{9}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Mirabilis ovata}{9}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Pata de guanaco}{10}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Poquil}{10}{subsection.5.7}%
+\contentsline {section}{\numberline {6}Protocolo general de riego}{11}{section.6}%
+\contentsline {section}{\numberline {7}Complementación entre especies}{11}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Estratificación vertical}{11}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Sinergia nutricional y estabilización}{11}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Control biológico de plagas}{12}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Compatibilidad agroecológica}{12}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Especificaciones generales del espacio}{12}{section.8}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.12)  10 JUL 2026 18:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.12)  19 JUL 2026 20:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -723,39 +723,60 @@ File: imagenes/huingan.jpg Graphic file (type jpg)
 Package pdftex.def Info: imagenes/huingan.jpg  used on input line 268.
 (pdftex.def)             Requested size: 117.3682pt x 156.49094pt.
  [4 <./imagenes/huingan.jpg>]
-
-Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before break' or set page breaks manually on input line 283.
-
-[5]
-Overfull \hbox (5.65408pt too wide) in paragraph at lines 320--320
- [][] 
- []
-
-[6] [7]
-
-Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before break' or set page breaks manually on input line 343.
-
-[8] [9] [10] [11] (./informe_especies_nativas.aux)
+<imagenes/quebracho.jpg, id=154, 770.88pt x 578.16pt>
+File: imagenes/quebracho.jpg Graphic file (type jpg)
+<use imagenes/quebracho.jpg>
+Package pdftex.def Info: imagenes/quebracho.jpg  used on input line 294.
+(pdftex.def)             Requested size: 156.16116pt x 117.12086pt.
+ [5 <./imagenes/quebracho.jpg>]
+<imagenes/pingo-pingo.jpg, id=159, 1003.75pt x 669.50125pt>
+File: imagenes/pingo-pingo.jpg Graphic file (type jpg)
+<use imagenes/pingo-pingo.jpg>
+Package pdftex.def Info: imagenes/pingo-pingo.jpg  used on input line 324.
+(pdftex.def)             Requested size: 156.16165pt x 104.15982pt.
+ [6 <./imagenes/pingo-pingo.jpg>]
+<imagenes/malva-de-cerro.jpg, id=166, 863.225pt x 456.70625pt>
+File: imagenes/malva-de-cerro.jpg Graphic file (type jpg)
+<use imagenes/malva-de-cerro.jpg>
+Package pdftex.def Info: imagenes/malva-de-cerro.jpg  used on input line 350.
+(pdftex.def)             Requested size: 156.1641pt x 82.62169pt.
+ [7 <./imagenes/malva-de-cerro.jpg>]
+<imagenes/maravilla-de-campo.jpg, id=171, 1027.84pt x 687.56876pt>
+File: imagenes/maravilla-de-campo.jpg Graphic file (type jpg)
+<use imagenes/maravilla-de-campo.jpg>
+Package pdftex.def Info: imagenes/maravilla-de-campo.jpg  used on input line 376.
+(pdftex.def)             Requested size: 156.16115pt x 104.46327pt.
+ [8 <./imagenes/maravilla-de-campo.jpg>] [9] [10] [11] [12] (./informe_especies_nativas.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
  ***********
-Package rerunfilecheck Info: File `informe_especies_nativas.out' has not changed.
-(rerunfilecheck)             Checksum: 8F5070FC8C5D08DC48F71E80F19BA00A;3684.
+
+
+Package rerunfilecheck Warning: File `informe_especies_nativas.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `informe_especies_nativas.out':
+(rerunfilecheck)             Before: 8F5070FC8C5D08DC48F71E80F19BA00A;3684
+(rerunfilecheck)             After:  9935390A01FBDDCD83523B22756CB3EB;3587.
  ) 
 Here is how much of TeX's memory you used:
- 26636 strings out of 469501
- 533613 string characters out of 5467320
+ 26688 strings out of 469501
+ 534591 string characters out of 5467320
  999920 words of memory out of 5000000
- 54715 multiletter control sequences out of 15000+600000
- 688094 words of font info for 136 fonts, out of 8000000 for 9000
+ 54733 multiletter control sequences out of 15000+600000
+ 685172 words of font info for 152 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  84i,13n,94p,1021b,911s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx9.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on informe_especies_nativas.pdf (12 pages, 801290 bytes).
+
+pdfTeX warning (dest): name{section.9} has been referenced but does not exist, replaced by a fixed one
+
+<c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx9.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/pcjp2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
+Output written on informe_especies_nativas.pdf (13 pages, 1901277 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
- 36 named destinations out of 1000 (max. 500000)
- 35023 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 246 PDF objects out of 1000 (max. 8388607)
+ 205 compressed objects within 3 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 32995 words of extra memory for PDF output out of 35830 (max. 10000000)
 
